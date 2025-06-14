@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { parse, isSameDay } from 'date-fns';
 import Header from '../components/Header';
@@ -76,21 +77,11 @@ const Index = () => {
   }, [selectedLocation, selectedCategory, selectedDate]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#3b3d4a]">
       <Header />
       <Hero />
       
-      {/* Artists and Map side by side */}
-      <section className="py-8 bg-background">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
-            <Artists />
-            <EventMap />
-          </div>
-        </div>
-      </section>
-      
-      <section className="py-16 bg-background" id="events">
+      <section className="py-16 bg-[#3b3d4a]" id="events">
         <div className="container mx-auto px-4">
           <FilterSection
             locations={locations}
@@ -134,31 +125,41 @@ const Index = () => {
           )}
           
           <div className="text-center mt-12">
-            <button className="bg-secondary text-secondary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-secondary/80 transition-colors">
+            <button className="bg-[#e49755] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#d4864a] transition-colors">
               Load More Events
             </button>
+          </div>
+        </div>
+      </section>
+
+      {/* Artists and Map side by side under events */}
+      <section className="py-8 bg-[#3b3d4a]">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+            <Artists />
+            <EventMap />
           </div>
         </div>
       </section>
       
       <FAQ />
       
-      <footer className="bg-muted py-12 border-t border-border">
+      <footer className="bg-[#2e2f3a] py-12 border-t border-gray-600">
         <div className="container mx-auto px-4">
           <div className="text-center">
-            <h3 className="text-xl font-semibold text-foreground mb-2">
+            <h3 className="text-xl font-semibold text-white mb-2">
               Stay Updated
             </h3>
-            <p className="text-muted-foreground mb-6">
+            <p className="text-gray-300 mb-6">
               Get notified about new events and exclusive content
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center max-w-md mx-auto">
               <input 
                 type="email" 
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 border border-border rounded-lg bg-background text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-primary"
+                className="flex-1 px-4 py-2 border border-gray-600 rounded-lg bg-[#3b3d4a] text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#e49755]"
               />
-              <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+              <button className="bg-[#e49755] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#d4864a] transition-colors">
                 Subscribe
               </button>
             </div>

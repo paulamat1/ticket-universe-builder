@@ -53,14 +53,13 @@ const Artists = () => {
       const eventsSection = document.getElementById('events');
       if (eventsSection) {
         eventsSection.scrollIntoView({ behavior: 'smooth' });
-        // Highlight the specific event card briefly
         setTimeout(() => {
           const eventCard = document.querySelector(`[data-event-id="${eventId}"]`);
           if (eventCard) {
             eventCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            eventCard.classList.add('ring-2', 'ring-primary');
+            eventCard.classList.add('ring-2', 'ring-[#e49755]');
             setTimeout(() => {
-              eventCard.classList.remove('ring-2', 'ring-primary');
+              eventCard.classList.remove('ring-2', 'ring-[#e49755]');
             }, 2000);
           }
         }, 500);
@@ -69,9 +68,9 @@ const Artists = () => {
   };
 
   return (
-    <div className="py-6">
-      <h2 className="text-xl font-bold text-foreground mb-4">Featured Speakers</h2>
-      <Carousel className="w-full max-w-xs">
+    <div className="bg-[#f5f4f2] border border-gray-300 rounded-lg p-6 h-48">
+      <h2 className="text-xl font-bold text-[#3b3d4a] mb-4">Featured Speakers</h2>
+      <Carousel className="w-full">
         <CarouselContent>
           {artists.map((artist) => (
             <CarouselItem key={artist.id} className="basis-1/2">
@@ -79,21 +78,21 @@ const Artists = () => {
                 className="text-center cursor-pointer hover:scale-105 transition-transform"
                 onClick={() => handleArtistClick(artist.eventId)}
               >
-                <div className="w-16 h-16 mx-auto mb-2 rounded-full overflow-hidden border-2 border-primary/20">
+                <div className="w-16 h-16 mx-auto mb-2 rounded-full overflow-hidden border-2 border-[#e49755]">
                   <img 
                     src={artist.image} 
                     alt={artist.name}
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="font-semibold text-foreground text-xs">{artist.name}</h3>
-                <p className="text-xs text-muted-foreground">{artist.specialty}</p>
+                <h3 className="font-semibold text-[#3b3d4a] text-xs">{artist.name}</h3>
+                <p className="text-xs text-gray-600">{artist.specialty}</p>
               </div>
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious />
-        <CarouselNext />
+        <CarouselPrevious className="border-[#e49755] text-[#e49755]" />
+        <CarouselNext className="border-[#e49755] text-[#e49755]" />
       </Carousel>
     </div>
   );
