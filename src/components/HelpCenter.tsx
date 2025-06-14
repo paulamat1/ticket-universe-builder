@@ -72,22 +72,22 @@ const HelpCenter = () => {
     <section className="py-6 bg-background">
       <div className="container mx-auto px-4">
         <div className="bg-card border border-border rounded-lg p-6 relative">
-          <h2 className="text-xl font-bold text-white mb-4">Centrum pomocy</h2>
+          <h2 className="text-xl font-bold text-white mb-6">Centrum pomocy</h2>
           <Carousel className="w-full" opts={{ align: "start", loop: true }}>
-            <CarouselContent>
+            <CarouselContent className="-ml-6">
               {helpLinks.map((link, index) => (
-                <CarouselItem key={index} className="basis-1/6">
+                <CarouselItem key={index} className="basis-1/3 sm:basis-1/4 md:basis-1/5 lg:basis-1/6 pl-6">
                   <a
                     href={link.href}
                     className="text-center cursor-pointer hover:scale-105 transition-transform block"
                   >
-                    <div className="flex flex-col items-center space-y-2">
-                      <div className="w-12 h-12 mx-auto mb-1 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary">
+                    <div className="flex flex-col items-center space-y-3 p-2">
+                      <div className="w-12 h-12 mx-auto mb-2 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary">
                         <div className="text-primary">
                           {link.icon}
                         </div>
                       </div>
-                      <h3 className="font-semibold text-white text-xs text-center leading-tight">{link.title}</h3>
+                      <h3 className="font-semibold text-white text-xs text-center leading-tight min-h-[2.5rem] flex items-center justify-center">{link.title}</h3>
                     </div>
                   </a>
                 </CarouselItem>
