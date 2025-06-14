@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { parse, isSameDay } from 'date-fns';
 import Header from '../components/Header';
@@ -83,24 +82,20 @@ const Index = () => {
       <Header />
       <Hero />
       
-      <section className="py-4 bg-[#0a0a0a]" id="events">
+      {/* Thin full-width filter section */}
+      <section className="py-3 bg-[#0a0a0a]" id="events">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 h-fit">
-            <div className="h-full">
-              <FilterSection
-                locations={locations}
-                categories={categories}
-                selectedLocation={selectedLocation}
-                selectedCategory={selectedCategory}
-                selectedDate={selectedDate}
-                onLocationChange={setSelectedLocation}
-                onCategoryChange={setSelectedCategory}
-                onDateChange={setSelectedDate}
-              />
-            </div>
-            <div className="h-full">
-              <EventMap />
-            </div>
+          <div className="max-w-none w-full mb-4">
+            <FilterSection
+              locations={locations}
+              categories={categories}
+              selectedLocation={selectedLocation}
+              selectedCategory={selectedCategory}
+              selectedDate={selectedDate}
+              onLocationChange={setSelectedLocation}
+              onCategoryChange={setSelectedCategory}
+              onDateChange={setSelectedDate}
+            />
           </div>
           
           {/* Events for selected date */}

@@ -2,6 +2,7 @@
 import React, { useState } from 'react';
 import { Calendar, MapPin, Users } from 'lucide-react';
 import EventCarousel from './EventCarousel';
+import EventMap from './EventMap';
 
 const Hero = () => {
   const [showDescription, setShowDescription] = useState(false);
@@ -88,7 +89,7 @@ const Hero = () => {
             <div className="max-w-4xl mx-auto">
               <h2 className="text-3xl font-bold text-white mb-8 text-center">About GenAI San Francisco Innovation Summit</h2>
               
-              <div className="grid md:grid-cols-2 gap-12">
+              <div className="grid md:grid-cols-2 gap-12 mb-12">
                 <div className="space-y-6">
                   <h3 className="text-xl font-semibold text-[#00ff88]">What to Expect</h3>
                   <p className="text-gray-300 leading-relaxed">
@@ -129,6 +130,11 @@ const Hero = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+
+              {/* Event Map */}
+              <div className="h-96">
+                <EventMap />
               </div>
             </div>
           </div>

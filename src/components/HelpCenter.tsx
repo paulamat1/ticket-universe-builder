@@ -71,9 +71,9 @@ const HelpCenter = () => {
   return (
     <section className="py-6 bg-background">
       <div className="container mx-auto px-4">
-        <div className="bg-card border border-border rounded-lg p-6">
+        <div className="bg-card border border-border rounded-lg p-6 relative">
           <h2 className="text-xl font-bold text-white mb-4">Centrum pomocy</h2>
-          <Carousel className="w-full">
+          <Carousel className="w-full" opts={{ align: "start", loop: true }}>
             <CarouselContent>
               {helpLinks.map((link, index) => (
                 <CarouselItem key={index} className="basis-1/6">
@@ -93,8 +93,8 @@ const HelpCenter = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="border-primary text-primary" />
-            <CarouselNext className="border-primary text-primary" />
+            <CarouselPrevious className="left-2 border-primary text-primary bg-[#0a0a0a]/80 hover:bg-[#0a0a0a]" />
+            <CarouselNext className="right-2 border-primary text-primary bg-[#0a0a0a]/80 hover:bg-[#0a0a0a]" />
           </Carousel>
         </div>
       </div>
