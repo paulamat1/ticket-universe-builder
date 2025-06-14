@@ -1,4 +1,3 @@
-
 import React, { useState, useMemo } from 'react';
 import { parse, isSameDay } from 'date-fns';
 import Header from '../components/Header';
@@ -79,11 +78,11 @@ const Index = () => {
   }, [selectedLocation, selectedCategory, selectedDate]);
 
   return (
-    <div className="min-h-screen bg-[#3b3d4a]">
+    <div className="min-h-screen bg-background">
       <Header />
       <Hero />
       
-      <section className="py-8 bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90" id="events">
+      <section className="py-8 bg-background" id="events">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
             <div className="lg:col-span-2">
@@ -134,7 +133,7 @@ const Index = () => {
           )}
           
           <div className="text-center mt-8">
-            <button className="bg-[#e49755] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#d4864a] transition-colors">
+            <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors">
               Load More Events
             </button>
           </div>
@@ -142,7 +141,7 @@ const Index = () => {
       </section>
 
       {/* Featured Speakers - Full Width */}
-      <section className="py-6 bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90">
+      <section className="py-6 bg-background">
         <div className="container mx-auto px-4">
           <Artists />
         </div>
@@ -153,7 +152,7 @@ const Index = () => {
       {/* Sponsors section above Stay Updated */}
       <Sponsors />
       
-      <footer className="bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90 py-12 border-t border-gray-600">
+      <footer className="bg-background py-12 border-t border-border">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h3 className="text-xl font-semibold text-white mb-2">
@@ -166,9 +165,9 @@ const Index = () => {
               <input 
                 type="email" 
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 border border-gray-600 rounded-lg bg-[#3b3d4a] text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#e49755]"
+                className="flex-1 px-4 py-2 border rounded-lg bg-input text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
               />
-              <button className="bg-[#e49755] text-white px-6 py-2 rounded-lg font-semibold hover:bg-[#d4864a] transition-colors">
+              <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
                 Subscribe
               </button>
             </div>

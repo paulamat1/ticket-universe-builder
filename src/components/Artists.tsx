@@ -85,9 +85,9 @@ const Artists = () => {
           const eventCard = document.querySelector(`[data-event-id="${eventId}"]`);
           if (eventCard) {
             eventCard.scrollIntoView({ behavior: 'smooth', block: 'center' });
-            eventCard.classList.add('ring-2', 'ring-[#e49755]');
+            eventCard.classList.add('ring-2', 'ring-primary');
             setTimeout(() => {
-              eventCard.classList.remove('ring-2', 'ring-[#e49755]');
+              eventCard.classList.remove('ring-2', 'ring-primary');
             }, 2000);
           }
         }, 500);
@@ -96,7 +96,7 @@ const Artists = () => {
   };
 
   return (
-    <div className="bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90 border border-gray-600/30 rounded-lg p-6">
+    <div className="bg-card border-border rounded-lg p-6">
       <h2 className="text-xl font-bold text-white mb-4">Featured Speakers</h2>
       <Carousel className="w-full">
         <CarouselContent>
@@ -106,7 +106,7 @@ const Artists = () => {
                 className="text-center cursor-pointer hover:scale-105 transition-transform"
                 onClick={() => handleArtistClick(artist.eventId)}
               >
-                <div className="w-16 h-16 mx-auto mb-2 rounded-full overflow-hidden border-2 border-[#e49755]">
+                <div className="w-16 h-16 mx-auto mb-2 rounded-full overflow-hidden border-2 border-primary">
                   <img 
                     src={artist.image} 
                     alt={artist.name}
@@ -119,8 +119,8 @@ const Artists = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="border-[#e49755] text-[#e49755]" />
-        <CarouselNext className="border-[#e49755] text-[#e49755]" />
+        <CarouselPrevious className="border-primary text-primary" />
+        <CarouselNext className="border-primary text-primary" />
       </Carousel>
     </div>
   );

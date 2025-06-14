@@ -69,9 +69,9 @@ const HelpCenter = () => {
   ];
 
   return (
-    <section className="py-6 bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90">
+    <section className="py-6 bg-background">
       <div className="container mx-auto px-4">
-        <div className="bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90 border border-gray-600/30 rounded-lg p-6">
+        <div className="bg-card border border-border rounded-lg p-6">
           <h2 className="text-xl font-bold text-white mb-4">Centrum pomocy</h2>
           <Carousel className="w-full">
             <CarouselContent>
@@ -82,8 +82,8 @@ const HelpCenter = () => {
                     className="text-center cursor-pointer hover:scale-105 transition-transform block"
                   >
                     <div className="flex flex-col items-center space-y-2">
-                      <div className="w-12 h-12 mx-auto mb-1 rounded-full bg-[#e49755]/20 flex items-center justify-center border-2 border-[#e49755]">
-                        <div className="text-[#e49755]">
+                      <div className="w-12 h-12 mx-auto mb-1 rounded-full bg-primary/20 flex items-center justify-center border-2 border-primary">
+                        <div className="text-primary">
                           {link.icon}
                         </div>
                       </div>
@@ -93,8 +93,8 @@ const HelpCenter = () => {
                 </CarouselItem>
               ))}
             </CarouselContent>
-            <CarouselPrevious className="border-[#e49755] text-[#e49755]" />
-            <CarouselNext className="border-[#e49755] text-[#e49755]" />
+            <CarouselPrevious className="border-primary text-primary" />
+            <CarouselNext className="border-primary text-primary" />
           </Carousel>
         </div>
       </div>

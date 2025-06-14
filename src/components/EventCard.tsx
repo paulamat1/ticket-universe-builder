@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -66,7 +65,7 @@ const EventCard = ({ id, title, date, time, location, category, price, image, de
 
   return (
     <Card 
-      className="overflow-hidden hover:shadow-lg transition-shadow cursor-pointer bg-[#1a1c2e] border-gray-600" 
+      className="overflow-hidden transition-shadow cursor-pointer" 
       data-event-id={id}
       onClick={handleCardClick}
     >
@@ -77,7 +76,7 @@ const EventCard = ({ id, title, date, time, location, category, price, image, de
           className="aspect-video w-full object-cover"
         />
         <Badge 
-          className="absolute top-2 right-2 bg-[#e49755] text-white border-none"
+          className="absolute top-2 right-2 bg-primary text-primary-foreground border-none"
           variant="secondary"
         >
           {category}
@@ -109,14 +108,14 @@ const EventCard = ({ id, title, date, time, location, category, price, image, de
                 <Bell className="h-4 w-4" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-80 bg-[#1a1c2e] border-gray-600" onClick={(e) => e.stopPropagation()}>
+            <PopoverContent className="w-80" onClick={(e) => e.stopPropagation()}>
               <form onSubmit={handleTicketAlert} className="space-y-3">
                 <div>
-                  <h4 className="font-medium text-white">Get Ticket Alerts</h4>
-                  <p className="text-sm text-gray-400">Be notified when tickets become available</p>
+                  <h4 className="font-medium">Get Ticket Alerts</h4>
+                  <p className="text-sm text-muted-foreground">Be notified when tickets become available</p>
                 </div>
                 <div>
-                  <Label htmlFor="alert-email" className="text-white">Email</Label>
+                  <Label htmlFor="alert-email">Email</Label>
                   <Input
                     type="email"
                     id="alert-email"
@@ -124,10 +123,9 @@ const EventCard = ({ id, title, date, time, location, category, price, image, de
                     value={alertEmail}
                     onChange={(e) => setAlertEmail(e.target.value)}
                     required
-                    className="bg-[#2a2d42] border-gray-600 text-white"
                   />
                 </div>
-                <Button type="submit" className="w-full bg-[#e49755] hover:bg-[#d4864a] text-white">
+                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
                   Sign Up for Alerts
                 </Button>
               </form>
@@ -145,11 +143,11 @@ const EventCard = ({ id, title, date, time, location, category, price, image, de
       </CardContent>
       
       <CardFooter className="p-4 pt-0 flex flex-col gap-3">
-        <div className="text-xl font-semibold text-[#e49755]">${price}</div>
+        <div className="text-xl font-semibold text-primary">${price}</div>
         {isSoldOut ? (
           showQueue ? (
             <form onSubmit={handleJoinQueue} className="flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
-              <Label htmlFor="email" className="text-white">Email:</Label>
+              <Label htmlFor="email">Email:</Label>
               <Input
                 type="email"
                 id="email"
@@ -157,16 +155,15 @@ const EventCard = ({ id, title, date, time, location, category, price, image, de
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 required
-                className="bg-[#2a2d42] border-gray-600 text-white"
               />
-              <Button type="submit" className="bg-[#e49755] hover:bg-[#d4864a] text-white">Join Waiting List</Button>
-              <Button type="button" variant="ghost" onClick={() => setShowQueue(false)} className="text-gray-400 hover:text-white">Cancel</Button>
+              <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground">Join Waiting List</Button>
+              <Button type="button" variant="ghost" onClick={() => setShowQueue(false)} className="text-muted-foreground hover:text-foreground">Cancel</Button>
             </form>
           ) : (
-            <Button onClick={(e) => { e.stopPropagation(); setShowQueue(true); }} variant="outline" className="border-[#e49755] text-[#e49755] hover:bg-[#e49755] hover:text-white">Join Waiting List</Button>
+            <Button onClick={(e) => { e.stopPropagation(); setShowQueue(true); }} variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">Join Waiting List</Button>
           )
         ) : (
-          <Button onClick={handleGetTickets} className="bg-[#e49755] hover:bg-[#d4864a] text-white">Get Tickets</Button>
+          <Button onClick={handleGetTickets} className="bg-primary hover:bg-primary/90 text-primary-foreground">Get Tickets</Button>
         )}
       </CardFooter>
     </Card>
