@@ -1,12 +1,13 @@
+
 import React from 'react';
 import { Calendar, MapPin, Users } from 'lucide-react';
 import EventCarousel from './EventCarousel';
 
 const Hero = () => {
   const heroImages = [
-    "https://images.unsplash.com/photo-1605810230434-7631ac76ec81?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1500673922987-e212871fec22?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=600&fit=crop"
+    "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=1200&h=600&fit=crop"
   ];
 
   const handleGetTickets = () => {
