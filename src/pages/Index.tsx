@@ -81,7 +81,7 @@ const Index = () => {
       <Header />
       <Hero />
       
-      <section className="py-16 bg-[#3b3d4a]" id="events">
+      <section className="py-12 bg-[#1a1c2e]" id="events">
         <div className="container mx-auto px-4">
           <FilterSection
             locations={locations}
@@ -96,8 +96,8 @@ const Index = () => {
           
           {/* Events for selected date */}
           {selectedDate && dateMatchedEvents.length > 0 && (
-            <div className="mb-12">
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+            <div className="mb-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {dateMatchedEvents.map((event) => (
                   <EventCard key={event.id} {...event} isSoldOut={event.id === "3"} />
                 ))}
@@ -108,7 +108,7 @@ const Index = () => {
           {/* Other events */}
           {otherEvents.length > 0 && (
             <div>
-              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+              <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
                 {otherEvents.map((event) => (
                   <EventCard key={event.id} {...event} isSoldOut={event.id === "3"} />
                 ))}
@@ -118,13 +118,13 @@ const Index = () => {
           
           {filteredEvents.length === 0 && (
             <div className="text-center py-12">
-              <p className="text-xl text-muted-foreground">
+              <p className="text-xl text-gray-400">
                 No events found matching your filters. Try adjusting your selection.
               </p>
             </div>
           )}
           
-          <div className="text-center mt-12">
+          <div className="text-center mt-8">
             <button className="bg-[#e49755] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#d4864a] transition-colors">
               Load More Events
             </button>
@@ -133,9 +133,9 @@ const Index = () => {
       </section>
 
       {/* Artists and Map side by side under events */}
-      <section className="py-8 bg-[#3b3d4a]">
+      <section className="py-6 bg-[#1a1c2e]">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             <Artists />
             <EventMap />
           </div>
