@@ -85,16 +85,23 @@ const Index = () => {
       
       <section className="py-8 bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90" id="events">
         <div className="container mx-auto px-4">
-          <FilterSection
-            locations={locations}
-            categories={categories}
-            selectedLocation={selectedLocation}
-            selectedCategory={selectedCategory}
-            selectedDate={selectedDate}
-            onLocationChange={setSelectedLocation}
-            onCategoryChange={setSelectedCategory}
-            onDateChange={setSelectedDate}
-          />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+            <div className="lg:col-span-2">
+              <FilterSection
+                locations={locations}
+                categories={categories}
+                selectedLocation={selectedLocation}
+                selectedCategory={selectedCategory}
+                selectedDate={selectedDate}
+                onLocationChange={setSelectedLocation}
+                onCategoryChange={setSelectedCategory}
+                onDateChange={setSelectedDate}
+              />
+            </div>
+            <div>
+              <EventMap />
+            </div>
+          </div>
           
           {/* Events for selected date */}
           {selectedDate && dateMatchedEvents.length > 0 && (
@@ -134,13 +141,10 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Artists and Map side by side under events */}
+      {/* Featured Speakers - Full Width */}
       <section className="py-6 bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
-            <Artists />
-            <EventMap />
-          </div>
+          <Artists />
         </div>
       </section>
       

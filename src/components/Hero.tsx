@@ -5,9 +5,9 @@ import EventCarousel from './EventCarousel';
 
 const Hero = () => {
   const heroImages = [
-    "https://images.unsplash.com/photo-1470229722913-7c0e2dbbafd3?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1493225457124-a3eb161ffa5f?w=1200&h=600&fit=crop",
-    "https://images.unsplash.com/photo-1524368535928-5b5e00ddc76b?w=1200&h=600&fit=crop"
+    "https://images.unsplash.com/photo-1501386761578-eac5c94b800a?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?w=1200&h=600&fit=crop",
+    "https://images.unsplash.com/photo-1540039155733-5bb30b53aa14?w=1200&h=600&fit=crop"
   ];
 
   const handleGetTickets = () => {
