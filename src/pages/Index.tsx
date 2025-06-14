@@ -83,7 +83,7 @@ const Index = () => {
       <Header />
       <Hero />
       
-      <section className="py-8 bg-[#0a0a0a]" id="events">
+      <section className="py-4 bg-[#0a0a0a]" id="events">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 h-fit">
             <div className="h-full">
@@ -153,7 +153,7 @@ const Index = () => {
       {/* Sponsors section above Stay Updated */}
       <Sponsors />
       
-      <footer className="bg-[#0a0a0a] py-12 border-t border-[#333]">
+      <footer className="bg-[#0a0a0a] py-8 border-t border-[#333]">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h3 className="text-xl font-semibold text-white mb-2">

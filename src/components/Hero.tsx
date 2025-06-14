@@ -25,21 +25,21 @@ const Hero = () => {
 
   return (
     <section className="relative overflow-hidden bg-[#0a0a0a]">
-      <div className="container mx-auto px-4 py-20">
+      <div className="container mx-auto px-4 py-12">
         <div className="max-w-6xl mx-auto">
-          <div className="text-center mb-8">
-            <div className="mb-6">
-              <span className="inline-block bg-[#1a1a1a] border border-[#333] text-[#00ff88] px-4 py-2 rounded-full text-sm font-medium mb-4">
+          <div className="text-center mb-6">
+            <div className="mb-4">
+              <span className="inline-block bg-[#1a1a1a] border border-[#333] text-[#00ff88] px-4 py-2 rounded-full text-sm font-medium mb-3">
                 🎵 Main Event Series
               </span>
             </div>
             
-            <h1 className="text-4xl md:text-6xl font-bold mb-6 leading-tight text-white">
+            <h1 className="text-4xl md:text-6xl font-bold mb-4 leading-tight text-white">
               GenAI San Francisco
               <span className="block text-[#00ff88]">Innovation Summit</span>
             </h1>
             
-            <p className="text-lg text-gray-300 mb-8 max-w-2xl mx-auto leading-relaxed font-light">
+            <p className="text-lg text-gray-300 mb-6 max-w-2xl mx-auto leading-relaxed font-light">
               Join the most exciting AI event series in San Francisco. Connect with industry leaders, 
               discover cutting-edge technologies, and shape the future of artificial intelligence.
             </p>
@@ -48,7 +48,7 @@ const Hero = () => {
           <EventCarousel images={heroImages} />
           
           <div className="text-center">
-            <div className="flex flex-wrap justify-center gap-6 mb-10">
+            <div className="flex flex-wrap justify-center gap-6 mb-6">
               <div className="flex items-center space-x-2 text-gray-300 bg-[#1a1a1a] border border-[#333] px-4 py-2 rounded-full">
                 <Calendar className="h-4 w-4 text-[#00ff88]" />
                 <span className="text-sm">Multiple dates available</span>
