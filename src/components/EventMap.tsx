@@ -39,7 +39,9 @@ const EventMap = () => {
         <div className="max-w-6xl mx-auto">
           <div className="bg-card border border-border rounded-lg p-8">
             <div className="relative bg-gradient-to-br from-blue-50 to-blue-100 dark:from-blue-900/20 dark:to-blue-800/20 rounded-lg p-8 min-h-[400px]">
-              <div className="absolute inset-0 bg-[url('data:image/svg+xml,%3Csvg width="40" height="40" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg"%3E%3Cg fill="none" fill-rule="evenodd"%3E%3Cg fill="%23cbd5e1" fill-opacity="0.1"%3E%3Cpath d="M20 20c4.418 0 8-3.582 8-8s-3.582-8-8-8-8 3.582-8 8 3.582 8 8 8z"/%3E%3C/g%3E%3C/g%3E%3C/svg%3E')] opacity-20"></div>
+              <div className="absolute inset-0 opacity-20">
+                <div className="w-full h-full bg-gradient-to-br from-slate-200/30 to-slate-300/30 dark:from-slate-700/30 dark:to-slate-800/30"></div>
+              </div>
               
               <div className="relative z-10">
                 <div className="text-center mb-8">
