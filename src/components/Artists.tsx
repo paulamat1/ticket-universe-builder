@@ -96,14 +96,14 @@ const Artists = () => {
   };
 
   return (
-    <div className="bg-card border-border rounded-lg p-6">
+    <div className="bg-card border-border rounded-lg p-6 relative">
       <h2 className="text-xl font-bold text-white mb-4">Featured Speakers</h2>
-      <Carousel className="w-full">
-        <CarouselContent>
+      <Carousel className="w-full" opts={{ align: "start", loop: true }}>
+        <CarouselContent className="-ml-2 md:-ml-4">
           {artists.map((artist) => (
-            <CarouselItem key={artist.id} className="basis-1/8">
+            <CarouselItem key={artist.id} className="pl-2 md:pl-4 basis-1/2 sm:basis-1/3 md:basis-1/4 lg:basis-1/6 xl:basis-1/8">
               <div 
-                className="text-center cursor-pointer hover:scale-105 transition-transform"
+                className="text-center cursor-pointer hover:scale-105 transition-transform px-2"
                 onClick={() => handleArtistClick(artist.eventId)}
               >
                 <div className="w-16 h-16 mx-auto mb-2 rounded-full overflow-hidden border-2 border-primary">
@@ -119,8 +119,8 @@ const Artists = () => {
             </CarouselItem>
           ))}
         </CarouselContent>
-        <CarouselPrevious className="border-primary text-primary" />
-        <CarouselNext className="border-primary text-primary" />
+        <CarouselPrevious className="left-2 border-primary text-primary bg-[#0a0a0a]/80 hover:bg-[#0a0a0a]" />
+        <CarouselNext className="right-2 border-primary text-primary bg-[#0a0a0a]/80 hover:bg-[#0a0a0a]" />
       </Carousel>
     </div>
   );
