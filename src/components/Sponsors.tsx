@@ -17,19 +17,19 @@ const Sponsors = () => {
   ];
 
   return (
-    <section className="py-8 bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90">
+    <section className="py-12 bg-[#f5f4f2]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           {/* Sponsors */}
           <div className="mb-8">
-            <h3 className="text-lg font-semibold text-white mb-4">Our Sponsors</h3>
+            <h3 className="text-2xl font-bold text-[#3b3d4a] mb-6">Our Sponsors</h3>
             <div className="flex flex-wrap justify-center items-center gap-6">
               {sponsors.map((sponsor) => (
-                <div key={sponsor.id} className="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors">
+                <div key={sponsor.id} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
                   <img 
                     src={sponsor.logo} 
                     alt={sponsor.name}
-                    className="h-8 w-20 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                    className="h-12 w-24 object-contain"
                   />
                 </div>
               ))}
@@ -38,14 +38,14 @@ const Sponsors = () => {
           
           {/* Media Partners */}
           <div>
-            <h3 className="text-lg font-semibold text-white mb-4">Media Partners</h3>
+            <h3 className="text-2xl font-bold text-[#3b3d4a] mb-6">Media Partners</h3>
             <div className="flex flex-wrap justify-center items-center gap-6">
               {mediaPartners.map((partner) => (
-                <div key={partner.id} className="bg-white/10 rounded-lg p-3 hover:bg-white/20 transition-colors">
+                <div key={partner.id} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
                   <img 
                     src={partner.logo} 
                     alt={partner.name}
-                    className="h-8 w-20 object-contain opacity-80 hover:opacity-100 transition-opacity"
+                    className="h-12 w-24 object-contain"
                   />
                 </div>
               ))}

@@ -54,6 +54,9 @@ const Hero = () => {
               <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-all transform hover:scale-105">
                 View All Events
               </button>
+              <button className="bg-[#e49755] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#d4864a] transition-all transform hover:scale-105">
+                Get Tickets
+              </button>
               <button className="border border-border text-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-muted transition-all">
                 Learn More
               </button>
