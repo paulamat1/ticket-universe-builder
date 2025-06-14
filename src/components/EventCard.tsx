@@ -1,6 +1,6 @@
 
-import React from 'react';
-import { Calendar, MapPin, Clock, Users, ArrowRight } from 'lucide-react';
+import React, { useState } from 'react';
+import { Calendar, MapPin, Clock, Users, ArrowRight, Bell } from 'lucide-react';
 
 interface EventCardProps {
   id: string;
@@ -14,9 +14,11 @@ interface EventCardProps {
   price: string;
   image: string;
   category: string;
+  isSoldOut?: boolean;
 }
 
 const EventCard: React.FC<EventCardProps> = ({
+  id,
   title,
   subtitle,
   date,
@@ -26,8 +28,23 @@ const EventCard: React.FC<EventCardProps> = ({
   maxAttendees,
   price,
   image,
-  category
+  category,
+  isSoldOut = false
 }) => {
+  const [isInQueue, setIsInQueue] = useState(false);
+  const [email, setEmail] = useState('');
+  const [showEmailInput, setShowEmailInput] = useState(false);
+
+  const handleQueueJoin = () => {
+    if (email) {
+      setIsInQueue(true);
+      setShowEmailInput(false);
+      setEmail('');
+    } else {
+      setShowEmailInput(true);
+    }
+  };
+
   return (
     <div className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group">
       <div className="relative h-48 overflow-hidden">
@@ -42,9 +59,15 @@ const EventCard: React.FC<EventCardProps> = ({
           </span>
         </div>
         <div className="absolute top-3 right-3">
-          <span className="bg-background/90 backdrop-blur text-foreground px-2 py-1 rounded-md text-xs font-semibold">
-            {price}
-          </span>
+          {isSoldOut ? (
+            <span className="bg-red-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
+              SOLD OUT
+            </span>
+          ) : (
+            <span className="bg-background/90 backdrop-blur text-foreground px-2 py-1 rounded-md text-xs font-semibold">
+              {price}
+            </span>
+          )}
         </div>
       </div>
       
@@ -93,10 +116,38 @@ const EventCard: React.FC<EventCardProps> = ({
           </div>
         </div>
         
-        <button className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all group flex items-center justify-center space-x-2">
-          <span>Get Tickets</span>
-          <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-        </button>
+        {isSoldOut ? (
+          <div className="space-y-3">
+            {showEmailInput && (
+              <input
+                type="email"
+                placeholder="Enter your email"
+                value={email}
+                onChange={(e) => setEmail(e.target.value)}
+                className="w-full px-3 py-2 border border-border rounded-lg text-sm"
+              />
+            )}
+            {isInQueue ? (
+              <button className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold flex items-center justify-center space-x-2" disabled>
+                <Bell className="h-4 w-4" />
+                <span>You're in the queue!</span>
+              </button>
+            ) : (
+              <button 
+                onClick={handleQueueJoin}
+                className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all group flex items-center justify-center space-x-2"
+              >
+                <Bell className="h-4 w-4" />
+                <span>{showEmailInput ? 'Join Queue' : 'Join Waitlist'}</span>
+              </button>
+            )}
+          </div>
+        ) : (
+          <button className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all group flex items-center justify-center space-x-2">
+            <span>Get Tickets</span>
+            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
+          </button>
+        )}
       </div>
     </div>
   );

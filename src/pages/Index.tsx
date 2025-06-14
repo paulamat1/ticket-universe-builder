@@ -5,6 +5,8 @@ import Hero from '../components/Hero';
 import EventCard from '../components/EventCard';
 import FilterSection from '../components/FilterSection';
 import EventMap from '../components/EventMap';
+import Artists from '../components/Artists';
+import FAQ from '../components/FAQ';
 import { events } from '../data/events';
 
 const Index = () => {
@@ -78,19 +80,10 @@ const Index = () => {
       <Header />
       <Hero />
       <EventMap />
+      <Artists />
       
       <section className="py-16 bg-background" id="events">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-4xl font-bold text-foreground mb-4">
-              Upcoming Events
-            </h2>
-            <p className="text-xl text-muted-foreground max-w-2xl mx-auto">
-              Choose from our diverse lineup of AI-focused events. Each session is designed 
-              to provide unique insights and networking opportunities.
-            </p>
-          </div>
-          
           <FilterSection
             locations={locations}
             categories={categories}
@@ -105,16 +98,9 @@ const Index = () => {
           {/* Events for selected date */}
           {selectedDate && dateMatchedEvents.length > 0 && (
             <div className="mb-12">
-              <h3 className="text-2xl font-bold text-foreground mb-6">
-                Events on {selectedDate.toLocaleDateString('en-US', { 
-                  year: 'numeric', 
-                  month: 'long', 
-                  day: 'numeric' 
-                })}
-              </h3>
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {dateMatchedEvents.map((event) => (
-                  <EventCard key={event.id} {...event} />
+                  <EventCard key={event.id} {...event} isSoldOut={event.id === "3"} />
                 ))}
               </div>
             </div>
@@ -123,12 +109,9 @@ const Index = () => {
           {/* Other events */}
           {otherEvents.length > 0 && (
             <div>
-              {selectedDate && dateMatchedEvents.length > 0 && (
-                <h3 className="text-2xl font-bold text-foreground mb-6">Other Events</h3>
-              )}
               <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
                 {otherEvents.map((event) => (
-                  <EventCard key={event.id} {...event} />
+                  <EventCard key={event.id} {...event} isSoldOut={event.id === "3"} />
                 ))}
               </div>
             </div>
@@ -150,6 +133,7 @@ const Index = () => {
         </div>
       </section>
       
+      <FAQ />
       
       <footer className="bg-muted py-12 border-t border-border">
         <div className="container mx-auto px-4">
