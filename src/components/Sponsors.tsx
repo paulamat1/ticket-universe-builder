@@ -17,15 +17,15 @@ const Sponsors = () => {
   ];
 
   return (
-    <section className="py-12 bg-[#f5f4f2]">
+    <section className="py-12 bg-[#0a0a0a]">
       <div className="container mx-auto px-4">
         <div className="max-w-4xl mx-auto text-center">
           {/* Sponsors */}
           <div className="mb-8">
-            <h3 className="text-2xl font-bold text-[#3b3d4a] mb-6">Our Sponsors</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">Our Sponsors</h3>
             <div className="flex flex-wrap justify-center items-center gap-6">
               {sponsors.map((sponsor) => (
-                <div key={sponsor.id} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                <div key={sponsor.id} className="bg-[#111] border border-[#333] rounded-lg p-4 hover:border-[#00ff88] transition-colors">
                   <img 
                     src={sponsor.logo} 
                     alt={sponsor.name}
@@ -38,10 +38,10 @@ const Sponsors = () => {
           
           {/* Media Partners */}
           <div>
-            <h3 className="text-2xl font-bold text-[#3b3d4a] mb-6">Media Partners</h3>
+            <h3 className="text-2xl font-bold text-white mb-6">Media Partners</h3>
             <div className="flex flex-wrap justify-center items-center gap-6">
               {mediaPartners.map((partner) => (
-                <div key={partner.id} className="bg-white rounded-lg p-4 shadow-sm hover:shadow-md transition-shadow">
+                <div key={partner.id} className="bg-[#111] border border-[#333] rounded-lg p-4 hover:border-[#00ff88] transition-colors">
                   <img 
                     src={partner.logo} 
                     alt={partner.name}
