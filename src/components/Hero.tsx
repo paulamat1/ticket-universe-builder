@@ -10,6 +10,13 @@ const Hero = () => {
     "https://images.unsplash.com/photo-1581092795360-fd1ca04f0952?w=1200&h=600&fit=crop"
   ];
 
+  const handleGetTickets = () => {
+    const eventsSection = document.getElementById('events');
+    if (eventsSection) {
+      eventsSection.scrollIntoView({ behavior: 'smooth' });
+    }
+  };
+
   return (
     <section className="relative overflow-hidden bg-gradient-to-br from-primary/5 via-background to-secondary/5">
       <div className="container mx-auto px-4 py-20">
@@ -54,11 +61,14 @@ const Hero = () => {
               <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-all transform hover:scale-105">
                 View All Events
               </button>
-              <button className="bg-[#e49755] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#d4864a] transition-all transform hover:scale-105">
-                Get Tickets
-              </button>
               <button className="border border-border text-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-muted transition-all">
                 Learn More
+              </button>
+              <button 
+                onClick={handleGetTickets}
+                className="bg-[#e49755] text-white px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#d4864a] transition-all transform hover:scale-105"
+              >
+                Get Tickets
               </button>
             </div>
           </div>
