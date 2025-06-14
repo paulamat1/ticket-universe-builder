@@ -1,155 +1,88 @@
-
 import React, { useState } from 'react';
-import { Calendar, MapPin, Clock, Users, ArrowRight, Bell } from 'lucide-react';
+import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
 
 interface EventCardProps {
   id: string;
   title: string;
-  subtitle: string;
   date: string;
   time: string;
   location: string;
-  attendees: number;
-  maxAttendees: number;
-  price: string;
-  image: string;
   category: string;
+  price: number;
+  image: string;
+  description: string;
   isSoldOut?: boolean;
 }
 
-const EventCard: React.FC<EventCardProps> = ({
-  id,
-  title,
-  subtitle,
-  date,
-  time,
-  location,
-  attendees,
-  maxAttendees,
-  price,
-  image,
-  category,
-  isSoldOut = false
-}) => {
-  const [isInQueue, setIsInQueue] = useState(false);
+const EventCard = ({ id, title, date, time, location, category, price, image, description, isSoldOut }: EventCardProps) => {
+  const [showQueue, setShowQueue] = useState(false);
   const [email, setEmail] = useState('');
-  const [showEmailInput, setShowEmailInput] = useState(false);
 
-  const handleQueueJoin = () => {
-    if (email) {
-      setIsInQueue(true);
-      setShowEmailInput(false);
-      setEmail('');
-    } else {
-      setShowEmailInput(true);
-    }
+  const handleJoinQueue = (e: React.FormEvent) => {
+    e.preventDefault();
+    // Here you would typically send the email to your backend
+    console.log('Joining queue with email:', email);
+    setShowQueue(false);
+    setEmail('');
+    // You could show a toast notification here
   };
 
   return (
-    <div className="bg-card border border-border rounded-xl overflow-hidden hover:shadow-lg transition-all duration-300 hover:scale-[1.02] group">
-      <div className="relative h-48 overflow-hidden">
-        <img 
-          src={image} 
+    <Card className="overflow-hidden hover:shadow-lg transition-shadow" data-event-id={id}>
+      <div className="relative">
+        <img
+          src={image}
           alt={title}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+          className="aspect-video w-full object-cover"
         />
-        <div className="absolute top-3 left-3">
-          <span className="bg-primary text-primary-foreground px-2 py-1 rounded-md text-xs font-medium">
+        {isSoldOut && (
+          <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center">
+            <span className="text-2xl font-bold text-white">Sold Out</span>
+          </div>
+        )}
+      </div>
+      
+      <CardContent className="p-6">
+        <CardHeader>
+          <CardTitle className="text-lg">{title}</CardTitle>
+          <CardDescription>{date} - {time} - {location}</CardDescription>
+        </CardHeader>
+        <p className="text-sm text-muted-foreground mt-2">{description}</p>
+        <div className="mt-4">
+          <span className="inline-flex items-center rounded-full bg-secondary px-3 py-0.5 text-sm font-medium text-secondary-foreground">
             {category}
           </span>
         </div>
-        <div className="absolute top-3 right-3">
-          {isSoldOut ? (
-            <span className="bg-red-500 text-white px-2 py-1 rounded-md text-xs font-semibold">
-              SOLD OUT
-            </span>
-          ) : (
-            <span className="bg-background/90 backdrop-blur text-foreground px-2 py-1 rounded-md text-xs font-semibold">
-              {price}
-            </span>
-          )}
-        </div>
-      </div>
+      </CardContent>
       
-      <div className="p-6">
-        <div className="mb-4">
-          <h3 className="text-xl font-bold text-foreground mb-1 group-hover:text-primary transition-colors">
-            {title}
-          </h3>
-          <p className="text-muted-foreground text-sm">
-            {subtitle}
-          </p>
-        </div>
-        
-        <div className="space-y-3 mb-6">
-          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <Calendar className="h-4 w-4" />
-            <span>{date}</span>
-          </div>
-          
-          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <Clock className="h-4 w-4" />
-            <span>{time}</span>
-          </div>
-          
-          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <MapPin className="h-4 w-4" />
-            <span>{location}</span>
-          </div>
-          
-          <div className="flex items-center space-x-2 text-sm text-muted-foreground">
-            <Users className="h-4 w-4" />
-            <span>{attendees} / {maxAttendees} attendees</span>
-          </div>
-        </div>
-        
-        <div className="mb-4">
-          <div className="flex justify-between text-xs text-muted-foreground mb-1">
-            <span>Capacity</span>
-            <span>{Math.round((attendees / maxAttendees) * 100)}%</span>
-          </div>
-          <div className="w-full bg-muted rounded-full h-2">
-            <div 
-              className="bg-primary h-2 rounded-full transition-all duration-300"
-              style={{ width: `${(attendees / maxAttendees) * 100}%` }}
-            ></div>
-          </div>
-        </div>
-        
+      <CardFooter className="p-6 pt-0 flex flex-col gap-3">
+        <div className="text-xl font-semibold">${price}</div>
         {isSoldOut ? (
-          <div className="space-y-3">
-            {showEmailInput && (
-              <input
+          showQueue ? (
+            <form onSubmit={handleJoinQueue} className="flex flex-col gap-2">
+              <Label htmlFor="email">Email:</Label>
+              <Input
                 type="email"
+                id="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
-                className="w-full px-3 py-2 border border-border rounded-lg text-sm"
+                required
               />
-            )}
-            {isInQueue ? (
-              <button className="w-full bg-green-500 text-white py-3 rounded-lg font-semibold flex items-center justify-center space-x-2" disabled>
-                <Bell className="h-4 w-4" />
-                <span>You're in the queue!</span>
-              </button>
-            ) : (
-              <button 
-                onClick={handleQueueJoin}
-                className="w-full bg-orange-500 text-white py-3 rounded-lg font-semibold hover:bg-orange-600 transition-all group flex items-center justify-center space-x-2"
-              >
-                <Bell className="h-4 w-4" />
-                <span>{showEmailInput ? 'Join Queue' : 'Join Waitlist'}</span>
-              </button>
-            )}
-          </div>
+              <Button type="submit">Join Waiting List</Button>
+              <Button type="button" variant="ghost" onClick={() => setShowQueue(false)}>Cancel</Button>
+            </form>
+          ) : (
+            <Button onClick={() => setShowQueue(true)} variant="outline">Join Waiting List</Button>
+          )
         ) : (
-          <button className="w-full bg-primary text-primary-foreground py-3 rounded-lg font-semibold hover:bg-primary/90 transition-all group flex items-center justify-center space-x-2">
-            <span>Get Tickets</span>
-            <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform" />
-          </button>
+          <Button>Get Tickets</Button>
         )}
-      </div>
-    </div>
+      </CardFooter>
+    </Card>
   );
 };
 

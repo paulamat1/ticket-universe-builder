@@ -48,15 +48,12 @@ const EventMap = () => {
   }, []);
 
   return (
-    <section className="py-8 bg-muted/50">
-      <div className="container mx-auto px-4">
-        <div className="max-w-4xl mx-auto">
-          <div className="bg-card border border-border rounded-lg overflow-hidden">
-            <div ref={mapContainer} className="w-full h-64" />
-          </div>
-        </div>
+    <div className="py-6">
+      <h2 className="text-xl font-bold text-foreground mb-4">Event Locations</h2>
+      <div className="bg-card border border-border rounded-lg overflow-hidden">
+        <div ref={mapContainer} className="w-full h-48" />
       </div>
-    </section>
+    </div>
   );
 };
 

@@ -79,8 +79,16 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <Hero />
-      <EventMap />
-      <Artists />
+      
+      {/* Artists and Map side by side */}
+      <section className="py-8 bg-background">
+        <div className="container mx-auto px-4">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-4xl mx-auto">
+            <Artists />
+            <EventMap />
+          </div>
+        </div>
+      </section>
       
       <section className="py-16 bg-background" id="events">
         <div className="container mx-auto px-4">
