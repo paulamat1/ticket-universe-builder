@@ -15,7 +15,7 @@ const EventMap = () => {
     
     map.current = new mapboxgl.Map({
       container: mapContainer.current,
-      style: 'mapbox://styles/mapbox/light-v11',
+      style: 'mapbox://styles/mapbox/dark-v11',
       center: [-122.4194, 37.7749],
       zoom: 11,
     });
@@ -33,9 +33,9 @@ const EventMap = () => {
 
       const coord = coordinates[location] || [-122.4194 + (index * 0.01), 37.7749 + (index * 0.01)];
       
-      new mapboxgl.Marker({ color: '#e49755' })
+      new mapboxgl.Marker({ color: '#00ff88' })
         .setLngLat(coord)
-        .setPopup(new mapboxgl.Popup().setHTML(`<h3>${location}</h3>`))
+        .setPopup(new mapboxgl.Popup().setHTML(`<h3 style="color: white; background: #1a1a1a; padding: 8px; border-radius: 4px; margin: 0;">${location}</h3>`))
         .addTo(map.current!);
     });
 
@@ -45,11 +45,11 @@ const EventMap = () => {
   }, []);
 
   return (
-    <div className="bg-[#f5f4f2] border border-gray-300 rounded-lg overflow-hidden h-48">
-      <div className="p-4">
-        <h2 className="text-xl font-bold text-[#3b3d4a] mb-2">Event Locations</h2>
+    <div className="bg-[#111] border border-[#333] rounded-lg overflow-hidden h-full flex flex-col">
+      <div className="p-6 pb-4">
+        <h2 className="text-lg font-semibold text-white">Event Locations</h2>
       </div>
-      <div ref={mapContainer} className="w-full h-32" />
+      <div ref={mapContainer} className="flex-1 min-h-[200px]" />
     </div>
   );
 };

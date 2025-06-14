@@ -1,3 +1,4 @@
+
 import React, { useState, useMemo } from 'react';
 import { parse, isSameDay } from 'date-fns';
 import Header from '../components/Header';
@@ -78,14 +79,14 @@ const Index = () => {
   }, [selectedLocation, selectedCategory, selectedDate]);
 
   return (
-    <div className="min-h-screen bg-background">
+    <div className="min-h-screen bg-[#0a0a0a]">
       <Header />
       <Hero />
       
-      <section className="py-8 bg-background" id="events">
+      <section className="py-8 bg-[#0a0a0a]" id="events">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
-            <div className="lg:col-span-2">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6 h-fit">
+            <div className="h-full">
               <FilterSection
                 locations={locations}
                 categories={categories}
@@ -97,7 +98,7 @@ const Index = () => {
                 onDateChange={setSelectedDate}
               />
             </div>
-            <div>
+            <div className="h-full">
               <EventMap />
             </div>
           </div>
@@ -133,7 +134,7 @@ const Index = () => {
           )}
           
           <div className="text-center mt-8">
-            <button className="bg-primary text-primary-foreground px-8 py-3 rounded-lg text-lg font-semibold hover:bg-primary/90 transition-colors">
+            <button className="bg-[#00ff88] text-black px-8 py-3 rounded-lg text-lg font-semibold hover:bg-[#00dd77] transition-colors">
               Load More Events
             </button>
           </div>
@@ -141,7 +142,7 @@ const Index = () => {
       </section>
 
       {/* Featured Speakers - Full Width */}
-      <section className="py-6 bg-background">
+      <section className="py-6 bg-[#0a0a0a]">
         <div className="container mx-auto px-4">
           <Artists />
         </div>
@@ -152,7 +153,7 @@ const Index = () => {
       {/* Sponsors section above Stay Updated */}
       <Sponsors />
       
-      <footer className="bg-background py-12 border-t border-border">
+      <footer className="bg-[#0a0a0a] py-12 border-t border-[#333]">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h3 className="text-xl font-semibold text-white mb-2">
@@ -165,9 +166,9 @@ const Index = () => {
               <input 
                 type="email" 
                 placeholder="Enter your email"
-                className="flex-1 px-4 py-2 border rounded-lg bg-input text-foreground placeholder:text-muted-foreground focus:outline-none focus:ring-2 focus:ring-ring"
+                className="flex-1 px-4 py-2 border border-[#333] rounded-lg bg-[#1a1a1a] text-white placeholder:text-gray-400 focus:outline-none focus:ring-2 focus:ring-[#00ff88] focus:border-transparent"
               />
-              <button className="bg-primary text-primary-foreground px-6 py-2 rounded-lg font-semibold hover:bg-primary/90 transition-colors">
+              <button className="bg-[#00ff88] text-black px-6 py-2 rounded-lg font-semibold hover:bg-[#00dd77] transition-colors">
                 Subscribe
               </button>
             </div>
