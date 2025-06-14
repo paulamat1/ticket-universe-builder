@@ -4,6 +4,7 @@ import Header from '../components/Header';
 import Hero from '../components/Hero';
 import EventCard from '../components/EventCard';
 import FilterSection from '../components/FilterSection';
+import EventMap from '../components/EventMap';
 import { events } from '../data/events';
 
 const Index = () => {
@@ -76,6 +77,7 @@ const Index = () => {
     <div className="min-h-screen bg-background">
       <Header />
       <Hero />
+      <EventMap />
       
       <section className="py-16 bg-background" id="events">
         <div className="container mx-auto px-4">
