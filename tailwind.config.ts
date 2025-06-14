@@ -21,6 +21,7 @@ export default {
 		extend: {
 			fontFamily: {
         sans: ['Inter', 'sans-serif'],
+        grotesk: ['Space Grotesk', 'sans-serif'],
       },
 			colors: {
 				border: 'hsl(var(--border))',
@@ -88,11 +89,20 @@ export default {
 					to: {
 						height: '0'
 					}
+				},
+				'pulse-neon': {
+					'0%, 100%': {
+						boxShadow: '0 0 20px rgba(34, 197, 94, 0.3)'
+					},
+					'50%': {
+						boxShadow: '0 0 30px rgba(34, 197, 94, 0.6)'
+					}
 				}
 			},
 			animation: {
 				'accordion-down': 'accordion-down 0.2s ease-out',
-				'accordion-up': 'accordion-up 0.2s ease-out'
+				'accordion-up': 'accordion-up 0.2s ease-out',
+				'pulse-neon': 'pulse-neon 2s ease-in-out infinite'
 			}
 		}
 	},

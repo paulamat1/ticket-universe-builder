@@ -1,3 +1,4 @@
+
 import React, { useState } from 'react';
 import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
@@ -65,7 +66,7 @@ const EventCard = ({ id, title, date, time, location, category, price, image, de
 
   return (
     <Card 
-      className="overflow-hidden transition-shadow cursor-pointer" 
+      className="overflow-hidden transition-all duration-300 cursor-pointer hover:scale-[1.02] group" 
       data-event-id={id}
       onClick={handleCardClick}
     >
@@ -73,26 +74,26 @@ const EventCard = ({ id, title, date, time, location, category, price, image, de
         <img
           src={image}
           alt={title}
-          className="aspect-video w-full object-cover"
+          className="aspect-video w-full object-cover group-hover:scale-105 transition-transform duration-500"
         />
         <Badge 
-          className="absolute top-2 right-2 bg-primary text-primary-foreground border-none"
+          className="absolute top-3 right-3 bg-gradient-to-r from-primary to-accent text-primary-foreground border-none font-grotesk font-medium shadow-lg"
           variant="secondary"
         >
           {category}
         </Badge>
         {isSoldOut && (
-          <div className="absolute top-0 left-0 w-full h-full bg-black/50 flex items-center justify-center">
-            <span className="text-2xl font-bold text-white">Sold Out</span>
+          <div className="absolute top-0 left-0 w-full h-full bg-black/70 flex items-center justify-center backdrop-blur-sm">
+            <span className="text-2xl font-grotesk font-bold text-white">Sold Out 😢</span>
           </div>
         )}
         
         {/* Share and Alert buttons */}
-        <div className="absolute top-2 left-2 flex gap-2">
+        <div className="absolute top-3 left-3 flex gap-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
           <Button
             size="sm"
             variant="outline"
-            className="bg-black/50 border-none text-white hover:bg-black/70"
+            className="glass-effect border-none text-white hover:bg-white/20 rounded-full w-10 h-10 p-0"
             onClick={handleShare}
           >
             <Share className="h-4 w-4" />
@@ -102,31 +103,32 @@ const EventCard = ({ id, title, date, time, location, category, price, image, de
               <Button
                 size="sm"
                 variant="outline"
-                className="bg-black/50 border-none text-white hover:bg-black/70"
+                className="glass-effect border-none text-white hover:bg-white/20 rounded-full w-10 h-10 p-0"
                 onClick={(e) => e.stopPropagation()}
               >
                 <Bell className="h-4 w-4" />
               </Button>
             </PopoverTrigger>
-            <PopoverContent className="w-80" onClick={(e) => e.stopPropagation()}>
+            <PopoverContent className="w-80 glass-effect border-border/50" onClick={(e) => e.stopPropagation()}>
               <form onSubmit={handleTicketAlert} className="space-y-3">
                 <div>
-                  <h4 className="font-medium">Get Ticket Alerts</h4>
-                  <p className="text-sm text-muted-foreground">Be notified when tickets become available</p>
+                  <h4 className="font-grotesk font-medium">Get Ticket Alerts 🔔</h4>
+                  <p className="text-sm text-muted-foreground">Be the first to know when tickets drop</p>
                 </div>
                 <div>
                   <Label htmlFor="alert-email">Email</Label>
                   <Input
                     type="email"
                     id="alert-email"
-                    placeholder="Enter your email"
+                    placeholder="your@email.com"
                     value={alertEmail}
                     onChange={(e) => setAlertEmail(e.target.value)}
+                    className="rounded-xl"
                     required
                   />
                 </div>
-                <Button type="submit" className="w-full bg-primary hover:bg-primary/90 text-primary-foreground">
-                  Sign Up for Alerts
+                <Button type="submit" className="w-full bg-gradient-to-r from-primary to-accent hover:scale-105 transition-transform duration-200 rounded-xl font-grotesk">
+                  Sign Me Up! ✨
                 </Button>
               </form>
             </PopoverContent>
@@ -134,36 +136,45 @@ const EventCard = ({ id, title, date, time, location, category, price, image, de
         </div>
       </div>
       
-      <CardContent className="p-4">
+      <CardContent className="p-5">
         <CardHeader className="p-0">
-          <CardTitle className="text-lg text-white">{title}</CardTitle>
-          <CardDescription className="text-gray-300">{date} - {time} - {location}</CardDescription>
+          <CardTitle className="text-lg font-grotesk font-semibold text-foreground">{title}</CardTitle>
+          <CardDescription className="text-muted-foreground font-medium">{date} • {time} • {location}</CardDescription>
         </CardHeader>
-        <p className="text-sm text-gray-400 mt-2">{description}</p>
+        <p className="text-sm text-muted-foreground mt-3 line-clamp-2">{description}</p>
       </CardContent>
       
-      <CardFooter className="p-4 pt-0 flex flex-col gap-3">
-        <div className="text-xl font-semibold text-primary">${price}</div>
+      <CardFooter className="p-5 pt-0 flex flex-col gap-3">
+        <div className="text-2xl font-grotesk font-bold gradient-text">${price}</div>
         {isSoldOut ? (
           showQueue ? (
-            <form onSubmit={handleJoinQueue} className="flex flex-col gap-2" onClick={(e) => e.stopPropagation()}>
-              <Label htmlFor="email">Email:</Label>
+            <form onSubmit={handleJoinQueue} className="flex flex-col gap-3 w-full" onClick={(e) => e.stopPropagation()}>
+              <Label htmlFor="email" className="font-grotesk">Join the waitlist:</Label>
               <Input
                 type="email"
                 id="email"
-                placeholder="Enter your email"
+                placeholder="your@email.com"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
+                className="rounded-xl"
                 required
               />
-              <Button type="submit" className="bg-primary hover:bg-primary/90 text-primary-foreground">Join Waiting List</Button>
-              <Button type="button" variant="ghost" onClick={() => setShowQueue(false)} className="text-muted-foreground hover:text-foreground">Cancel</Button>
+              <Button type="submit" className="bg-gradient-to-r from-secondary to-primary hover:scale-105 transition-transform duration-200 rounded-xl font-grotesk">
+                Join Waitlist 🎯
+              </Button>
+              <Button type="button" variant="ghost" onClick={() => setShowQueue(false)} className="text-muted-foreground hover:text-foreground rounded-xl">
+                Cancel
+              </Button>
             </form>
           ) : (
-            <Button onClick={(e) => { e.stopPropagation(); setShowQueue(true); }} variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground">Join Waiting List</Button>
+            <Button onClick={(e) => { e.stopPropagation(); setShowQueue(true); }} variant="outline" className="w-full border-primary/50 text-primary hover:bg-primary/10 rounded-xl font-grotesk font-medium">
+              Join Waitlist 📝
+            </Button>
           )
         ) : (
-          <Button onClick={handleGetTickets} className="bg-primary hover:bg-primary/90 text-primary-foreground">Get Tickets</Button>
+          <Button onClick={handleGetTickets} className="w-full bg-gradient-to-r from-primary to-accent hover:scale-105 transition-transform duration-200 rounded-xl font-grotesk font-semibold">
+            Get Tickets 🎫
+          </Button>
         )}
       </CardFooter>
     </Card>
