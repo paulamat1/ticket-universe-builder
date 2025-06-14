@@ -8,6 +8,8 @@ import FilterSection from '../components/FilterSection';
 import EventMap from '../components/EventMap';
 import Artists from '../components/Artists';
 import FAQ from '../components/FAQ';
+import Sponsors from '../components/Sponsors';
+import HelpCenter from '../components/HelpCenter';
 import { events } from '../data/events';
 
 const Index = () => {
@@ -81,7 +83,7 @@ const Index = () => {
       <Header />
       <Hero />
       
-      <section className="py-12 bg-[#1a1c2e]" id="events">
+      <section className="py-8 bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90" id="events">
         <div className="container mx-auto px-4">
           <FilterSection
             locations={locations}
@@ -133,7 +135,7 @@ const Index = () => {
       </section>
 
       {/* Artists and Map side by side under events */}
-      <section className="py-6 bg-[#1a1c2e]">
+      <section className="py-6 bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-6xl mx-auto">
             <Artists />
@@ -144,7 +146,10 @@ const Index = () => {
       
       <FAQ />
       
-      <footer className="bg-[#2e2f3a] py-12 border-t border-gray-600">
+      {/* Sponsors section above Stay Updated */}
+      <Sponsors />
+      
+      <footer className="bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90 py-12 border-t border-gray-600">
         <div className="container mx-auto px-4">
           <div className="text-center">
             <h3 className="text-xl font-semibold text-white mb-2">
@@ -166,6 +171,9 @@ const Index = () => {
           </div>
         </div>
       </footer>
+      
+      {/* Help Center section below Stay Updated */}
+      <HelpCenter />
     </div>
   );
 };

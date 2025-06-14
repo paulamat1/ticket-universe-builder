@@ -44,6 +44,34 @@ const artists: Artist[] = [
     image: "https://images.unsplash.com/photo-1501286353178-1ec881214838?w=200&h=200&fit=crop&crop=face",
     specialty: "AI Ethics",
     eventId: "3"
+  },
+  {
+    id: "5",
+    name: "Emma Johnson",
+    image: "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?w=200&h=200&fit=crop&crop=face",
+    specialty: "Robotics",
+    eventId: "1"
+  },
+  {
+    id: "6",
+    name: "Marco Silva",
+    image: "https://images.unsplash.com/photo-1472099645785-5658abf4ff4e?w=200&h=200&fit=crop&crop=face",
+    specialty: "Deep Learning",
+    eventId: "2"
+  },
+  {
+    id: "7",
+    name: "Lisa Wang",
+    image: "https://images.unsplash.com/photo-1494790108755-2616b612b494?w=200&h=200&fit=crop&crop=face",
+    specialty: "NLP",
+    eventId: "4"
+  },
+  {
+    id: "8",
+    name: "James Wilson",
+    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=200&h=200&fit=crop&crop=face",
+    specialty: "AI Safety",
+    eventId: "3"
   }
 ];
 
@@ -68,12 +96,12 @@ const Artists = () => {
   };
 
   return (
-    <div className="bg-[#f5f4f2] border border-gray-300 rounded-lg p-6 h-48">
-      <h2 className="text-xl font-bold text-[#3b3d4a] mb-4">Featured Speakers</h2>
+    <div className="bg-gradient-to-br from-[#1a1c2e]/90 via-[#2a2d42]/90 to-[#1a1c2e]/90 border border-gray-600/30 rounded-lg p-6 h-48">
+      <h2 className="text-xl font-bold text-white mb-4">Featured Speakers</h2>
       <Carousel className="w-full">
         <CarouselContent>
           {artists.map((artist) => (
-            <CarouselItem key={artist.id} className="basis-1/2">
+            <CarouselItem key={artist.id} className="basis-1/4">
               <div 
                 className="text-center cursor-pointer hover:scale-105 transition-transform"
                 onClick={() => handleArtistClick(artist.eventId)}
@@ -85,8 +113,8 @@ const Artists = () => {
                     className="w-full h-full object-cover"
                   />
                 </div>
-                <h3 className="font-semibold text-[#3b3d4a] text-xs">{artist.name}</h3>
-                <p className="text-xs text-gray-600">{artist.specialty}</p>
+                <h3 className="font-semibold text-white text-xs">{artist.name}</h3>
+                <p className="text-xs text-gray-300">{artist.specialty}</p>
               </div>
             </CarouselItem>
           ))}
